@@ -1,15 +1,5 @@
-console.log("main.js linked!");
-
 ////////////////////////////////////////////////
-// Part 1: Linking
-////////////////////////////////////////////////
-
-// Link this JavaScript file to an HTML document.
-// You'll know the file is correctly linked if the console says
-// "main.js linked!"
-
-////////////////////////////////////////////////
-// Part 2: Working With Data Structures
+// Part 1: Working With Data Structures
 ////////////////////////////////////////////////
 
 const album1 = {
@@ -96,6 +86,10 @@ const album7 = {
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
 
+/////////////////////////////////////////////////////
+// Part 2: More Tasks About Datatypes and Structures
+/////////////////////////////////////////////////////
+
 const album8 = {
   title: "Naked",
   albumDetails: {
@@ -116,25 +110,28 @@ const talkingHeadsAlbums = [
   album8
 ];
 
-/////////////////////////////////////////////////////
-// Part 3: More Tasks About Datatypes and Structures
-/////////////////////////////////////////////////////
-
 // 1. Create an object literal called `band`.
+let band = {};
 
 // 2. Give it the property `name` and set it to "Talking Heads"
+band.name = "Talking Heads";
 
 // 3. Give it the property `members` and set it to an array with a single
 //    string, "David Byrne", in it.
+band.members = ["David Byrne"];
 
 // 4. Give it the property `albums` and set it to the array stored in the
 //    variable talkingHeadsAlbums
+band.albums = talkingHeadsAlbums;
 
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
+band.members.push("Tiny Weymouth");
+band.members.push("Chris Franz");
+band.members.push("Jerry Harrison");
 
 ////////////////////////////////////////////////
-// Part 4: Conditional Logic
+// Part 3: Conditional Logic
 ////////////////////////////////////////////////
 
 // 1. Write a conditional to console.log "Talking Heads were a prolific band"
@@ -161,7 +158,7 @@ const talkingHeadsAlbums = [
 //    Make sure it always works!
 
 /////////////////////////////////////////////////////
-// Part 5: For Loops
+// Part 4: For Loops
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
@@ -174,7 +171,7 @@ const talkingHeadsAlbums = [
 //    have `.labels`, which is an Array!
 
 /////////////////////////////////////////////////////
-// Part 7: More Tasks With Conditionals and Iteration
+// Part 5: More Tasks With Conditionals and Iteration
 /////////////////////////////////////////////////////
 
 // 1. There is a Talking Heads concert at DAR Constitutional Hall, and
@@ -206,7 +203,7 @@ const talkingHeadsAlbums = [
 //    "Welcome, Newt Gingrich! You and your party may sit anywhere except first 3 rows of the center section.
 //     Please be sure to leave no seats between you."
 
-const tickets = [
+const ticketSections = [
   {name: "Boutros Boutros-Ghali", section: "center", type: "premium",  seats: 1},
   {name: "Ann Richards",          section: "left",   type: "premium",  seats: 2},
   {name: "George Will",           section: "left",   type: "standard", seats: 2},
