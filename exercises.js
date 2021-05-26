@@ -29,8 +29,6 @@ const album2 = {
   }
 };
 
-
-
 const album3 = {
   title: "Fear of Music",
   albumDetails: {
@@ -50,6 +48,7 @@ album3.albumDetails.formats.push(lp)
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
 album3.albumDetails.released = new Date("August 3, 1979")
+album3.albumDetails.released = album3.albumDetails.released.toLocaleDateString()
 // console.log(album3.albumDetails.released)
 
 
@@ -104,7 +103,7 @@ const album7 = {
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
-album7.albumDetails.labels = album7.albumDetails.labels.split(" ")
+album7.albumDetails.labels = album7.albumDetails.labels.split(", ")
 // console.log(album7.albumDetails.labels)
 
 /////////////////////////////////////////////////////
@@ -327,9 +326,75 @@ const tickets = [
   {amount: 65.00, discount: true,  zombie: true},
   {amount: 90.00, discount: false},
   {amount: 50.00, discount: true,  zombie: false},
-  {amount: 50.00, zombie:   true},
+  {amount: 50.00, zombie: true},
   {amount: 80.00, discount: true},
   {amount: 90.00},
   {amount: 50.00, discount: true}
 ];
+
+tickets.forEach(ticket => {
+  let str = ""
+
+  // check the ticket price
+  if (ticket.amount === 50.00) {
+    str += "STANDARD"
+  } else if (ticket.amount === 65.00) {
+    str += "PREMIER"
+  } else if (ticket.amount === 90.00 || ticket.amount === 80.00) {
+    str += "PREMIER PLUS"
+  } else {
+    str += "ERROR: INVALID TICKET"
+  }
+
+  if (ticket.discount && ticket.zombie) {
+    str += " $20 DRINKS"
+  } else if (ticket.discount || ticket.zombie) {
+    str += " $10 DRINKS"
+  } else if (!ticket.discount && !ticket.zombie) {
+    str += " NO DRINKS"
+  }
+
+  if (str.includes("ERROR: INVALID TICKET")) {
+    str = "ERROR: INVALID TICKET"
+  }
+
+  console.log(str)
+})
+
+
+// for (i = 0; i < tickets.length; i++) {
+//   if (tickets[i].amount == 50.00 && tickets[i].discount == false && tickets[i].zombie == false) {
+//     console.log("STANDARD NO DRINKS")
+//   } else if (tickets[i].amount == 50.00 && (tickets[i].discount == true || tickets[i].zombie == true)) {
+//     console.log("STANDARD $10 DRINKS")
+//   } else if (tickets[i].amount == 50.00 && (tickets[i].discount == true && tickets[i].zombie == true)) {
+//     console.log("STANDARD $20 DRINKS")
+//   } else if (tickets[i].amount == 50.00 && tickets[i].discount == null && tickets[i].zombie == null) {
+//     console.log("STANDARD")
+//   }
+
+//   if (tickets[i].amount == 65.00 && tickets[i].discount == false && tickets[i].zombie == false) {
+//     console.log("PREMIER NO DRINKS")
+//   } else if (tickets[i].amount == 65.00 && (tickets[i].discount == true || tickets[i].zombie == true)) {
+//     console.log("PREMIER $10 DRINKS")
+//   } else if (tickets[i].amount == 65.00 && (tickets[i].discount == true && tickets[i].zombie == true)) {
+//     console.log("PREMIER $20 DRINKS")
+//   } else if (tickets[i].amount == 65.00 && tickets[i].discount == null && tickets[i].zombie == null) {
+//     console.log("PREMIER")
+//   }
+
+// }
+
+// for (let i of tickets) {
+//   // console.log(i)
+//   let discount = i.hasOwnProperty("discount") ? i.discount : false
+//   let zombie = i.hasOwnProperty("zombie") ? i.zombie : false
+
+//   let drinkVoucher = (discount == true && zombie == true) ? 
+
+
+//   console.log(discount)
+  
+// }
+
 
